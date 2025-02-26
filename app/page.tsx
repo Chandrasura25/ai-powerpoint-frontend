@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-fit">
-        <h1 className="text-xl font-semibold uppercase text-center mb-6">AI-Powered PowerPoint Generator</h1>
+        <h1 className="text-2xl font-semibold uppercase text-center mb-6">AI-Powered PowerPoint Generator</h1>
         <div className="space-y-4">
           <Input
             type="text"
@@ -74,7 +74,7 @@ export default function Home() {
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
             onKeyDown={handleKeyPress}
-            className="w-full p-2 border rounded shadow-none"
+            className="shadow-none"
           />
           <Input
             type="number"
@@ -82,13 +82,13 @@ export default function Home() {
             value={numSlides}
             onChange={(e) => setNumSlides(parseInt(e.target.value))}
             onKeyDown={handleKeyPress}
-            className="w-full p-2 border rounded shadow-none"
+            className="shadow-none"
           />
           <Select
             defaultValue="Varied"
             onValueChange={(value) => setLayout(value)}
           >
-            <SelectTrigger className="w-full p-2 border rounded shadow-none">
+            <SelectTrigger className="shadow-none">
               <SelectValue placeholder="Select layout" />
             </SelectTrigger>
             <SelectContent>
@@ -100,7 +100,7 @@ export default function Home() {
           <Button
             onClick={handleGenerate}
             disabled={loading}
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
+            className="w-full bg-blue-500 text-white hover:bg-blue-600 disabled:bg-gray-400"
           >
             {loading ? "Generating..." : "Generate Presentation"}
           </Button>
