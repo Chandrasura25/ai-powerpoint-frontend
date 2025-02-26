@@ -2,6 +2,16 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Input } from "@/components/ui/input";
+
+
 export default function Home() {
   const [topic, setTopic] = useState("");
   const [numSlides, setNumSlides] = useState(5);
@@ -47,34 +57,46 @@ export default function Home() {
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === "Enter") {
+      handleGenerate();
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6">AI-Powered PowerPoint Generator</h1>
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-fit">
+        <h1 className="text-xl font-semibold uppercase text-center mb-6">AI-Powered PowerPoint Generator</h1>
         <div className="space-y-4">
-          <input
+          <Input
             type="text"
             placeholder="Enter topic"
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
-            className="w-full p-2 border rounded"
+            onKeyDown={handleKeyPress}
+            className="w-full p-2 border rounded shadow-none"
           />
-          <input
+          <Input
             type="number"
             placeholder="Number of slides"
             value={numSlides}
             onChange={(e) => setNumSlides(parseInt(e.target.value))}
-            className="w-full p-2 border rounded"
+            onKeyDown={handleKeyPress}
+            className="w-full p-2 border rounded shadow-none"
           />
-          <select
-            value={layout}
-            onChange={(e) => setLayout(e.target.value)}
-            className="w-full p-2 border rounded"
+          <Select
+            defaultValue="Varied"
+            onValueChange={(value) => setLayout(value)}
           >
-            <option value="Varied">Varied</option>
-            <option value="Text-Heavy">Text-Heavy</option>
-            <option value="Image-Focused">Image-Focused</option>
-          </select>
+            <SelectTrigger className="w-full p-2 border rounded shadow-none">
+              <SelectValue placeholder="Select layout" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Varied">Varied</SelectItem>
+              <SelectItem value="Text-Heavy">Text-Heavy</SelectItem>
+              <SelectItem value="Image-Focused">Image-Focused</SelectItem>
+            </SelectContent>
+          </Select>
           <Button
             onClick={handleGenerate}
             disabled={loading}
