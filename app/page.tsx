@@ -11,7 +11,7 @@ export default function Home() {
   const handleGenerate = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/api/slide/generate-presentation", {
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/slide/generate-presentation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
