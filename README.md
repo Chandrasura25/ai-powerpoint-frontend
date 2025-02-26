@@ -74,13 +74,13 @@ This project is licensed under the MIT License.
 
 1. Start the backend server first:
    ```bash
-   cd backend
+   cd ai-powerpoint-backend
    uvicorn main:app --reload
    ```
 
 2. Start the frontend development server:
    ```bash
-   cd frontend
+   cd ai-powerpoint-frontend
    npm run dev
    ```
 
