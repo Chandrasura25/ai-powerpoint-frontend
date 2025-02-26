@@ -1,57 +1,64 @@
 ## **Frontend README.md**
 
-```markdown
 # AI-Powered PowerPoint Generator - Frontend
 
-This is the frontend for the AI-Powered PowerPoint Generator. It is built using Next.js and Tailwind CSS. The frontend allows users to input a topic, set parameters, and download a generated PowerPoint presentation.
+Welcome to the frontend of the AI-Powered PowerPoint Generator. This application is crafted using Next.js and Tailwind CSS, providing a seamless interface for users to input topics, configure parameters, and download AI-generated PowerPoint presentations.
 
 ## Prerequisites
 
-- Node.js 16 or higher
-- NPM or Yarn
+Ensure you have the following installed:
 
-## Setup
+- **Node.js**: Version 16 or higher
+- **Package Manager**: NPM or Yarn
 
-1. **Clone the repository**:
+## Setup Instructions
+
+Follow these steps to set up the project:
+
+1. **Clone the Repository**:
    ```bash
    git clone https://github.com/Chandrasura25/ai-powerpoint-frontend.git
    cd ai-powerpoint-frontend
    ```
 
-2. **Install dependencies**:
+2. **Install Dependencies**:
    ```bash
    npm install
    ```
 
-3. **Set up environment variables**:
+3. **Configure Environment Variables**:
    - Create a `.env.local` file in the root directory:
      ```env
      NEXT_PUBLIC_API_URL=http://localhost:8000
      ```
-   - Replace `http://localhost:8000` with the URL of your backend API if it's hosted elsewhere.
+   - Update `http://localhost:8000` with your backend API URL if hosted elsewhere.
 
 ## Running the Frontend
 
-1. Start the development server:
+To start the frontend server, execute:
+
+1. **Start Development Server**:
    ```bash
    npm run dev
    ```
 
-2. The frontend will be available at `http://localhost:3000`.
+2. Access the frontend at `http://localhost:3000`.
 
-## Features
+## Key Features
 
-- Input a topic for the AI-generated presentation.
-- Set parameters such as the number of slides and preferred layout.
-- Download the generated `.pptx` file.
+- **Topic Input**: Enter a topic for the AI to generate a presentation.
+- **Parameter Configuration**: Customize the number of slides and layout preferences.
+- **Download Option**: Obtain the generated presentation as a `.pptx` file.
 
-## Project Structure
+## Project Structure Overview
 
-- `app/page.tsx`: Main page with the user interface.
-- `globals.css`: Tailwind CSS styles.
-- `tailwind.config.js`: Tailwind CSS configuration.
+- **`app/page.tsx`**: Contains the main user interface.
+- **`globals.css`**: Includes Tailwind CSS styles.
+- **`tailwind.config.js`**: Configuration file for Tailwind CSS.
 
 ## Dependencies
+
+This project relies on the following packages:
 
 - `next`
 - `react`
@@ -65,23 +72,25 @@ This is the frontend for the AI-Powered PowerPoint Generator. It is built using 
 
 ## License
 
-This project is licensed under the MIT License.
-```
+This project is open-source and available under the MIT License.
 
 ---
 
-## **How to Use Both Together**
+## **How to Use Both Frontend and Backend Together**
 
-1. Start the backend server first:
+To integrate the frontend with the backend, follow these steps:
+
+1. **Start the Backend Server**:
    ```bash
    cd ai-powerpoint-backend
    uvicorn main:app --reload
    ```
 
-2. Start the frontend development server:
+2. **Start the Frontend Development Server**:
    ```bash
    cd ai-powerpoint-frontend
    npm run dev
    ```
 
-3. Open your browser and navigate to `http://localhost:3000` to use the web interface.
+3. **Access the Application**:
+   Open your browser and navigate to `http://localhost:3000` to interact with the web interface.
