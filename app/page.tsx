@@ -9,6 +9,11 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const handleGenerate = async () => {
+    if (numSlides < 5 || numSlides > 20) {
+      toast("Number of slides must be between 5 and 20.");
+      return;
+    }
+
     setLoading(true);
     try {
       const response = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/slide/generate-presentation", {
@@ -28,7 +33,7 @@ export default function Home() {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "generated_presentation.pptx";
+        a.download = `${topic}.pptx`;
         a.click();
         toast("Presentation generated successfully.");
       } else {
